@@ -168,13 +168,6 @@ body {
     transform: rotate(45deg) scale(1.1); /* Povećava sliku prilikom hover-a */
   }
   
-
-
-
-
-
-  
-
 .home-img .rhombus {
    position: absolute;
    width: 100%;
@@ -313,6 +306,11 @@ body {
 
 
 
+/* O NAMA */
+
+
+
+
 .auto-detailing-section {
     background-color: #1a1a1a;
     color: #ffffff;
@@ -390,6 +388,70 @@ body {
 
 
 
+/* O NAMA V2 */
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+.car-image {
+    flex: 1;
+    max-width: 50%;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.content {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.services {
+    display: flex;
+    flex-direction: column;
+}
+.service {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+.service:hover {
+    transform: translateX(10px);
+}
+.service-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    background-color: #e67e22;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.service:hover .service-icon {
+    transform: scale(1.2);
+    background-color: #d35400;
+}
+.service-text h3 {
+    color: #333;
+    margin: 0;
+    font-size: 18px;
+}
+.service-text p {
+    color: #666;
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+
+
+
 
 
 /* nase usluge */
@@ -462,6 +524,161 @@ body {
     color: #a0a0a0;
     line-height: 1.6;
 }
+
+
+
+
+/*CENE */ 
+
+.pricing-section {
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-size: 3em;
+    color: #e67e22; /* Narandžasta boja */
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+    margin: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    padding: 30px 20px;
+    background-color: #e67e22; /* Narandžasta boja */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    color: #fff;
+}
+
+.card-header .icon img {
+    width: 60px;
+    height: 60px;
+}
+
+.card-header h3 {
+    margin: 20px 0;
+    font-size: 2em;
+    color: #fff;
+}
+
+.card-header .price {
+    font-size: 2.5em;
+    color: #fff;
+}
+
+.card-header .price span {
+    font-size: 0.6em;
+    color: #ffdab9;
+}
+
+.card-body {
+    padding: 20px 30px;
+}
+
+.card-body ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.card-body ul li {
+    margin: 15px 0;
+    color: #666;
+    font-size: 1.1em;
+}
+
+.card-body .choose-plan {
+    background-color: #e67e22;
+    color: #fff;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+.card-body .choose-plan:hover {
+    background-color: #d35400;
+}
+
+.popular .badge {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: #ffd700;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 0.9em;
+}
+
+.card-header.basic {
+    background-color: #f39c12;
+}
+
+.card-header.professional {
+    background-color: #e67e22;
+}
+
+.card-header.enterprise {
+    background-color: #d35400;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.card.appear {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* faq */
