@@ -45,7 +45,44 @@ window.addEventListener('scroll', () => {
 
 
 
+// BROJKE
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    const speed = 1000; // Sporije učitavanje brojki - povećanje vrednosti
+
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(() => {
+                animateCounter(counter);
+            }, 20); // Povećano vreme za sporiju animaciju
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    const checkVisibilityAndAnimate = () => {
+        counters.forEach(counter => {
+            const rect = counter.getBoundingClientRect();
+            if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                animateCounter(counter);
+                counter.parentElement.classList.add('in-viewport');
+            } else {
+                counter.parentElement.classList.remove('in-viewport');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', checkVisibilityAndAnimate);
+    checkVisibilityAndAnimate(); // Initial check in case the counter is already in view
+});
 
 
 
