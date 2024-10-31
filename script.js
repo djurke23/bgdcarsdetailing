@@ -103,3 +103,59 @@ document.querySelectorAll('.faq-question').forEach(question => {
 
 
 
+
+
+// slider after before
+
+
+const container = document.querySelector('.image-container5');
+        const beforeWrapper = document.querySelector('.image-wrapper-before');
+        const slider = document.querySelector('.slider5');
+        let isActive = false;
+
+        const calculatePercentage = (event) => {
+            const { left, width } = container.getBoundingClientRect();
+            let pos = (event.clientX - left) / width;
+            pos = Math.max(0, Math.min(1, pos));
+            return pos * 100;
+        };
+
+        const updateSlider = (percentage) => {
+            beforeWrapper.style.clipPath = `polygon(0 0, ${percentage}% 0, ${percentage}% 100%, 0 100%)`;
+            slider.style.left = `${percentage}%`;
+        };
+
+        const move = (event) => {
+            if (!isActive) return;
+            const percentage = calculatePercentage(event);
+            updateSlider(percentage);
+        };
+
+        // Mouse events
+        container.addEventListener('mousedown', () => isActive = true);
+        window.addEventListener('mouseup', () => isActive = false);
+        window.addEventListener('mousemove', move);
+
+        // Touch events
+        container.addEventListener('touchstart', (e) => {
+            isActive = true;
+        });
+
+        window.addEventListener('touchend', () => {
+            isActive = false;
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isActive) return;
+            const touch = e.touches[0];
+            const mockEvent = {
+                clientX: touch.clientX
+            };
+            move(mockEvent);
+        });
+
+        // Prevent image dragging
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });

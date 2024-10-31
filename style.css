@@ -322,26 +322,84 @@ body {
     padding: 0 20px;
     display: flex;
     align-items: center;
+    gap: 60px; /* Dodaje razmak između elemenata */
 }
 .auto-detailing-image {
-    flex: 1;
-    padding-right: 40px;
-    overflow: hidden; /* For image animation */
-}
-.auto-detailing-image-placeholder {
-    background-color: #333;
-    width: 100%;
-    padding-top: 75%; /* 4:3 aspect ratio */
-    position: relative;
+    flex: 1; /* Uzima jednaki prostor kao i content */
     overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.5s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    max-width: 100%;
+    margin: 20px 0;
 }
-.auto-detailing-image:hover .auto-detailing-image-placeholder {
-    transform: scale(1.05);
+
+.auto-detailing-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    animation: fadeIn 1s ease-in;
 }
+
 .auto-detailing-content {
     flex: 1;
+    padding-left: 20px; /* Dodatni razmak sa leve strane teksta */
+}
+
+/* Hover efekat - slika se malo uveća */
+.auto-detailing-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Sjaj efekat pri prelasku mišem */
+.auto-detailing-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: 0.75s;
+    z-index: 1;
+}
+
+.auto-detailing-image:hover::before {
+    left: 100%;
+}
+
+/* Fade-in animacija */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive dizajn */
+@media (max-width: 768px) {
+    .auto-detailing-container {
+        flex-direction: column;
+        gap: 30px; /* Manji razmak na mobilnim uređajima */
+    }
+    .auto-detailing-image {
+        margin: 10px 0;
+    }
+}
+.auto-detailing-content {
+    padding-left: 0; /* Uklanjamo padding na mobilnom */
 }
 .auto-detailing-title {
     font-size: 2.5em;
@@ -392,7 +450,8 @@ body {
 
 
 .container {
-    max-width: 1000px;
+    background-color: #ff6b35;
+    
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -400,7 +459,6 @@ body {
 .car-image {
     flex: 1;
     max-width: 50%;
-    height: auto;
     animation: float 3s ease-in-out infinite;
 }
 @keyframes float {
@@ -430,25 +488,128 @@ body {
     width: 24px;
     height: 24px;
     margin-right: 15px;
-    background-color: #e67e22;
+    background-color: #1a1a1a;
     border-radius: 50%;
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 .service:hover .service-icon {
     transform: scale(1.2);
-    background-color: #d35400;
+    background-color: #1a1a1a;
 }
 .service-text h3 {
-    color: #333;
+    color: #ffffff;
     margin: 0;
     font-size: 18px;
 }
 .service-text p {
-    color: #666;
+    color: #ffffff;
     margin: 5px 0 0;
     font-size: 14px;
 }
 
+
+
+/* before after slider */
+
+
+.container5 {
+
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.image-container5 {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.image-wrapper5 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.image-before,
+.image-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.image-wrapper-before {
+    z-index: 1;
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.slider5 {
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background: #FF8C00; /* narandžasta boja */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    cursor: ew-resize;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #FF8C00; /* narandžasta boja */
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: ew-resize;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Možete promeniti nijansu narandžaste boje zamenom #FF8C00 sa nekom drugom */
+
+.slider-button::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-left: 2px solid #555;
+    border-right: 2px solid #555;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Overlay labels */
+.label {
+    position: absolute;
+    top: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    z-index: 1;
+}
+
+.label-before {
+    left: 20px;
+}
+
+.label-after {
+    right: 20px;
+}
 
 
 
@@ -458,7 +619,7 @@ body {
 
 
 .auto-detailing-services {
-    background-color: #1e2130;
+    background-color: #1a1a1a;
     color: #ffffff;
     padding: 60px 0;
     font-family: Arial, sans-serif;
@@ -489,7 +650,7 @@ body {
     gap: 30px;
 }
 .service-card {
-    background-color: #2a2f45;
+    background-color: #ff6b35;
     border-radius: 10px;
     padding: 30px;
     flex: 1;
@@ -504,7 +665,7 @@ body {
     left: 0;
     width: 100%;
     height: 5px;
-    background-color: #ff6b35;
+    background-color: #ffffff;
 }
 .service-card:hover {
     transform: translateY(-5px);
@@ -521,7 +682,7 @@ body {
 }
 .service-description {
     font-size: 0.9em;
-    color: #a0a0a0;
+    color: #ffffff;
     line-height: 1.6;
 }
 
@@ -834,7 +995,7 @@ h1 {
     100% { transform: scale(1); }
 }
 .newsletter-section {
-    background: linear-gradient(135deg, #1e2130 0%, #2a3a5a 100%);
+    background: linear-gradient(135deg, #1e2130 0%, #1a1a1a 100%);
     color: #ffffff;
     padding: 80px 0;
     font-family: Arial, sans-serif;
