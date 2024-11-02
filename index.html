@@ -44,16 +44,16 @@
   <header class="header"> 
 
     <!-- naslov -->
-    <a href="#" class="logo">BGD CARS Detailing</a> 
+    <a href="index.html" class="logo">BGD CARS Detailing</a> 
 
     <!-- navigacioni bar -->
     <nav class="navbar">
-      <a href="#pocetna" style="--i:1;" class="active">Početna</a>
+      <a href="index.html" style="--i:1;" class="active">Početna</a>
       <a href="#istaknuto" style="--i:2;">Istaknuto</a>
-      <a href="#recenzije" style="--i:3;">Recenzije</a>
-      <a href="#usluge" style="--i:4;">Usluge</a>
+      <a href="usluge.html" style="--i:3;">Usluge</a>
+      <a href="cenovnik.html" style="--i:4;">Cenovnik</a>
       <a href="#o-nama" style="--i:5;">O nama</a>
-      <a href="#kontakt" style="--i:6;">Kontakt</a>  
+      <a href="kontakt.html" style="--i:6;">Kontakt</a>  
     </nav>
 
     <!-- društvene mreže dugmici -->
@@ -204,32 +204,59 @@
 <!-- nase usluge -->
 
 <section class="auto-detailing-services">
-
    <div class="services-container">
-      <div class="services-header">
-         <h2 class="services-title">Naše Usluge</h2>
-         <p class="services-subtitle">Pružamo vrhunske usluge detailinga kako bismo vašem vozilu dali sjaj i zaštitu koju zaslužuje.</p>
-      </div>
-      <div class="services-grid">
-         <div class="service-card">
-               <div class="service-icon">🚿</div>
-               <h3 class="service-title">Eksterijer Detailing</h3>
-               <p class="service-description">Temeljno pranje, poliranje i zaštita spoljašnjosti vašeg vozila za besprekoran sjaj i dugotrajnu zaštitu od spoljašnjih uticaja.</p>
-         </div>
-         <div class="service-card">
-               <div class="service-icon">🧼</div>
-               <h3 class="service-title">Interijer Detailing</h3>
-               <p class="service-description">Dubinsko čišćenje i osvežavanje unutrašnjosti vozila, uključujući sedišta, tepihe i sve površine za besprekoran i ugodan prostor.</p>
-         </div>
-         <div class="service-card">
+       <div class="services-header">
+           <h2 class="services-title">Naše Usluge</h2>
+           <p class="services-subtitle">Pružamo vrhunske usluge detailinga kako bismo vašem vozilu dali sjaj i zaštitu koju zaslužuje.</p>
+       </div>
+       <div class="services-grid">
+           <div class="service-card">
+               <div class="service-icon">🚗</div>
+               <h3 class="service-title">Poliranje automobila</h3>
+               <p class="service-description">Profesionalno poliranje koje uklanja ogrebotine i vraća originalni sjaj vašem vozilu.</p>
+               <button onclick="openModal('poliranje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🧽</div>
+               <h3 class="service-title">Dubinsko pranje</h3>
+               <p class="service-description">Temeljno čišćenje svih površina vašeg vozila uz korišćenje profesionalnih sredstava.</p>
+               <button onclick="openModal('dubinsko')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🛡️</div>
+               <h3 class="service-title">Keramička zaštita</h3>
+               <p class="service-description">Dugotrajna zaštita laka vašeg vozila pomoću najnovije keramičke tehnologije.</p>
+               <button onclick="openModal('keramicka')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
                <div class="service-icon">✨</div>
-               <h3 class="service-title">Keramički Premaz</h3>
-               <p class="service-description">Primena naprednog keramičkog premaza koji pruža izuzetnu zaštitu boje, olakšava održavanje i pojačava sjaj vašeg vozila.</p>
-         </div>
-      </div>
+               <h3 class="service-title">Detaljno spoljašnje pranje</h3>
+               <p class="service-description">Kompletno čišćenje eksterijera vozila sa posebnom pažnjom na svaki detalj.</p>
+               <button onclick="openModal('spoljasnje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🚪</div>
+               <h3 class="service-title">Detaljno unutrašnje pranje</h3>
+               <p class="service-description">Potpuno čišćenje enterijera sa dezinfekcijom i osvežavanjem svih površina.</p>
+               <button onclick="openModal('unutrasnje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">💡</div>
+               <h3 class="service-title">Polimerizacija farova</h3>
+               <p class="service-description">Profesionalna restauracija i zaštita farova sa dugotrajnom keramičkom zaštitom u trajanju od 12 meseci.</p>
+               <button onclick="openModal('farovi')" class="service-button">Saznajte više</button>
+           </div>
+       </div>
    </div>
-
 </section>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+   <div class="modal-content">
+       <span class="close-button" onclick="closeModal()">&times;</span>
+       <div id="modalContent" class="service-list"></div>
+   </div>
+</div>
 
 
 <!-- BROJKE -->
@@ -420,7 +447,7 @@
 <div class="newsletter-container">
    <div class="newsletter-content">
        <h2 class="newsletter-title">Ostanite u toku sa najnovijim trendovima u auto detailingu!</h2>
-       <p class="newsletter-description">Prijavite se na naš newsletter i budite prvi koji će saznati o specijalnim ponudama, novim uslugama i ekskluzivnim savjetima za održavanje vašeg vozila.</p>
+       <p class="newsletter-description">Prijavite se na naš newsletter i budite prvi koji će saznati o specijalnim ponudama, novim uslugama i ekskluzivnim savetima za održavanje vašeg vozila.</p>
        <form class="newsletter-form">
            <input type="email" placeholder="Vaša email adresa" class="newsletter-input" required>
            <button type="submit" class="newsletter-button">Prijavite se</button>
@@ -762,22 +789,14 @@
      <img src="slider\ww.png"/>
   </div>
  
-  
-
-  
   </div>
 
 
 
 
-
-
-
-
-
-
-
 <br><br><br><br><br><br><br><br><br><br>
+
+
 
 
   <!-- BACK TO TOP --> 
@@ -787,44 +806,62 @@
   </a>
 
 
+
+
+
 <!-- footer --> 
 
-<footer>
+<footer class="footer-container">
+   <div class="waves">
+       <div class="wave" id="wave1"></div>
+       <div class="wave" id="wave2"></div>
+       <div class="wave" id="wave3"></div>
+       <div class="wave" id="wave4"></div>
+   </div>
+   
+   <div class="footer-content">
+       <div class="footer-section">
+           <h3>O Nama</h3>
+           <p>Vaš partner za besprekornu čistoću i zaštitu automobila.</p>
+           <div class="social-icons">
+               <a href="#"><ion-icon name="logo-tiktok"></ion-icon></a>
+               <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+               <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+           </div>
+       </div>
+       
+       <div class="footer-section">
+           <h3>Kontakt</h3>
+           <p>Adresa: Branka Radičevića 13, Beograd</p>
+           <p>Broj telefona: +381-(0)67/767-1862</p>
+           <p>Email: info@domain.com</p>
+           <p>Radno vreme: Pon - Ned: 07:00–19:00</p>
 
-  <div class="waves">
-
-  <div class="wave" id="wave1"></div>
-  <div class="wave" id="wave2"></div>
-  <div class="wave" id="wave3"></div>
-  <div class="wave" id="wave4"></div>
-
-
-  </div>
-
-
-<ul class="social_ic">
-  <li><a href="https://www.tiktok.com/@bgdcars"><ion-icon name="logo-tiktok"></ion-icon></a></li>
-  <li><a href="https://www.youtube.com/@bgdcars"><ion-icon name="logo-youtube"></ion-icon></a></li>
-  <li><a href="https://www.instagram.com/bgdcars/"><ion-icon name="logo-instagram"></ion-icon></a></li>
-</ul>
-
-<ul class="menu">
-  <li><a href="#pocetna">Početna</a></li>
-  <li><a href="#istaknuto">Istaknuto</a></li>
-  <li><a href="#recenzije">Recenzije</a></li>
-  <li><a href="#usluge">Usluge</a></li>
-  <li><a href="#o-nama">O nama</a></li>
-  <li><a href="#kontakt">Kontakt</a></li>
-</ul>
-
-
-<p> &copy; Copyright  2024 BGD CARS Sva Prava Zadržana, Made by 
-   <a href="https://github.com/djurke23">Djurke23</a>. </p>
-
+       </div>
+       
+       <div class="footer-section">
+           <h3>Važne Stranice</h3>
+           <a href="#">Cenovnik</a>
+           <a href="#">Usluge</a>
+           <a href="#">FAQ</a>
+       </div>
+       
+       <div class="footer-section newsletter">
+           <h3>Newsletter</h3>
+           <p>Prijavite se na naš newsletter za redovne vesti!</p>
+           <div class="newsletter-form">
+               <input type="email" placeholder="Email Address">
+               <button type="submit"><ion-icon name="paper-plane-outline"></ion-icon></button>
+           </div>
+       </div>
+   </div>
+   
+   <div class="footer-bottom">
+       <p>&copy; Copyright 2024 BGD CARS DETAILING Sva prava zadržana | Made by <a href="https://djurke23.github.io/portfolio/">Djurke23.</a></p>
+   </div>
 </footer>
 
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 
