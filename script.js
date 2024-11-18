@@ -5,14 +5,59 @@
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    const services = document.querySelectorAll('.service');
-    services.forEach(service => {
-        service.addEventListener('mouseover', () => {
-            service.style.transform = 'translateX(10px)';
+    const services = [
+        {
+            icon: 'fa-check-circle',
+            title: "Tretmani za svaki budžet",
+            description: "Od osnovnog do premium detaljnog čišćenja, imamo opcije za svačiji džep, garantujući najbolju vrednost."
+        },
+        {
+            icon: 'fa-shield-alt',
+            title: "Garancija kvaliteta",
+            description: "Pružamo konkurentne cene na tržištu, tako da možete rezervisati sa sigurnošću da dobijate najbolju ponudu."
+        },
+        {
+            icon: 'fa-clock',
+            title: "Podrška 24/7",
+            description: "Naš posvećeni tim je dostupan 24/7 da vam pomogne sa svim pitanjima, osiguravajući besprekorno iskustvo čišćenja."
+        }
+    ];
+
+    const servicesSection = document.querySelector('.services-section');
+
+    services.forEach((service, index) => {
+        const serviceItem = document.createElement('div');
+        serviceItem.className = 'service-item';
+        serviceItem.innerHTML = `
+            <div class="service-icon">
+                <i class="fas ${service.icon}"></i>
+            </div>
+            <div class="service-text">
+                <h3>${service.title}</h3>
+                <p>${service.description}</p>
+            </div>
+        `;
+        servicesSection.appendChild(serviceItem);
+
+        // Trigger animation after a slight delay
+        setTimeout(() => {
+            serviceItem.style.opacity = '1';
+            serviceItem.style.transform = 'translateX(0)';
+        }, 100 + (index * 200));
+    });
+
+    // Add intersection observer for animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }
         });
-        service.addEventListener('mouseout', () => {
-            service.style.transform = 'translateX(0)';
-        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-item').forEach(item => {
+        observer.observe(item);
     });
 });
 
@@ -170,7 +215,7 @@ const container = document.querySelector('.image-container5');
 
 
 
-        // nase usluge
+ // nase usluge
 
 
         const serviceDetails = {

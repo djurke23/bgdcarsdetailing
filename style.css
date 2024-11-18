@@ -487,77 +487,188 @@ body {
 
 
 
-/* O NAMA V2 */
 
 
-.container {
+
+
+/* o nama v2 */
+
+
+.service-container {
     background-color: #1a1a1a;
+    padding: 60px 0;
+    color: white;
+    overflow: hidden;
+}
+
+.inner-container {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.title-section {
+    text-align: center;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.title-section h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+.title-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #ffd93d);
+}
+
+.content-wrapper {
     display: flex;
     align-items: center;
-}
-.car-image {
-    flex: 1;
-    max-width: 50%;
-    animation: float 3s ease-in-out infinite;
-}
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-.content {
-    flex: 1;
-    padding-left: 40px;
+    gap: 60px;
+    margin-top: 40px;
 }
 
-.services {
-    display: flex;
-    flex-direction: column;
+.car-section {
+    flex: 1;
+    position: relative;
 }
-.service {
+
+.car-image {
+    width: 100%;
+    height: auto;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.services-section {
+    flex: 1;
+}
+
+.service-item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+
+.service-icon {
+    margin-right: 15px;
+    color: #ff6b6b;
+    font-size: 24px;
+    padding-top: 3px;
+}
+
+.service-icon i {
     transition: transform 0.3s ease;
 }
-.service:hover {
-    transform: translateX(10px);
-}
-.service-icon {
-    width: 24px;
-    height: 24px;
-    margin-right: 15px;
-    background-color: #1a1a1a;
-    border-radius: 50%;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-.service:hover .service-icon {
+
+.service-item:hover .service-icon i {
     transform: scale(1.2);
-    background-color: #1a1a1a;
 }
+
 .service-text h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.25rem;
     color: #ffffff;
-    margin: 0;
-    font-size: 18px;
 }
+
 .service-text p {
-    color: #ffffff;
-    margin: 5px 0 0;
-    font-size: 14px;
+    margin: 0;
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 1rem;
 }
+
+@keyframes floatAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .car-section {
+        margin-bottom: 40px;
+    }
+
+    .service-item {
+        text-align: left;
+    }
+}
+
+
+
 
 
 
 /* before after slider */
 
 
-.container5 {
+.page-wrapper
+ {
+    display: flex;
+    background-color:  #ff6b35; 
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 4rem 2rem;
+    margin: 0 auto;
+}
 
-    position: relative;
+.services-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    width: 100%;
+}
+
+.services-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.services-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.container5 {
     width: 100%;
     max-width: 800px;
-    margin: 20px auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .image-container5 {
@@ -589,13 +700,14 @@ body {
 .image-wrapper-before {
     z-index: 1;
     clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    transition: clip-path 0.1s ease-out;
 }
 
 .slider5 {
     position: absolute;
     width: 4px;
     height: 100%;
-    background: #FF8C00; /* narandžasta boja */
+    background: #FF8C00;
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -605,51 +717,109 @@ body {
 
 .slider-button {
     position: absolute;
-    width: 40px;
-    height: 40px;
-    background: #FF8C00; /* narandžasta boja */
+    width: 48px;
+    height: 48px;
+    background: #FF8C00;
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: ew-resize;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease;
 }
 
-/* Možete promeniti nijansu narandžaste boje zamenom #FF8C00 sa nekom drugom */
+.slider-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
 
-.slider-button::after {
+.slider-button .arrow-left::before,
+.slider-button .arrow-left::after {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
-    border-left: 2px solid #555;
-    border-right: 2px solid #555;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 2px;
+    background: white;
+    left: 25%;
 }
 
-/* Overlay labels */
+.slider-button .arrow-left::before {
+    transform: translateY(-3px) rotate(45deg);
+}
+
+.slider-button .arrow-left::after {
+    transform: translateY(3px) rotate(-45deg);
+}
+
+.slider-button .arrow-right::before,
+.slider-button .arrow-right::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    height: 2px;
+    background: white;
+    right: 25%;
+}
+
+.slider-button .arrow-right::before {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+.slider-button .arrow-right::after {
+    transform: translateY(3px) rotate(45deg);
+}
+
 .label {
     position: absolute;
-    top: 20px;
+    padding: 8px 16px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 3px;
-    font-family: Arial, sans-serif;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 4px;
+    font-weight: bold;
     font-size: 14px;
     z-index: 1;
+    transition: opacity 0.3s ease;
 }
 
 .label-before {
     left: 20px;
+    top: 20px;
 }
 
 .label-after {
     right: 20px;
+    top: 20px;
 }
+
+.service-details {
+    margin-top: 2rem;
+    max-width: 800px;
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    margin: 2rem auto 0;
+}
+
+.service-details p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.service-details p:last-child {
+    margin-bottom: 0;
+}
+
+.highlight {
+    color: #FF8C00;
+    font-weight: bold;
+}
+
+
 
 
 
@@ -839,6 +1009,12 @@ body {
         margin: 10% auto;
     }
 }
+
+
+
+
+
+
 
 
 
@@ -1136,9 +1312,6 @@ h1 {
 
 
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -1174,6 +1347,34 @@ h1 {
     100% { transform: scale(1) rotate(360deg); }
 }
 
+.testimonial-background {
+    background-color: #1a1a1a;
+    padding: 50px 20px; /* Opcionalno, za dodatni prostor oko sekcije */
+}
+
+.testimonial-container {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5); /* Zadržava postojeću pozadinu unutar sekcije */
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.testimonial-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    color: #f5f5f5;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+}
+
+.testimonial-subheading {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
 .testimonial-container {
     max-width: 800px;
     margin: 50px auto;
@@ -1192,6 +1393,7 @@ h1 {
 }
 
 .testimonial {
+    
     min-width: 100%;
     padding: 20px;
     text-align: center;
@@ -1398,7 +1600,7 @@ h1 {
     100% { transform: scale(1); }
 }
 .newsletter-section {
-    background: linear-gradient(135deg, #1e2130 0%, #1a1a1a 100%);
+    background: linear-gradient(120deg, #df6021 0%, #1a1a1a 100%);
     color: #ffffff;
     padding: 80px 0;
     font-family: Arial, sans-serif;
@@ -1453,17 +1655,22 @@ h1 {
     background-color: #ff8c5a;
 }
 .newsletter-image {
-    flex: 1;
-    max-width: 400px;
     animation: float 5s ease-in-out infinite;
+    
 }
+
 .newsletter-image img {
-    width: 100%;
-    height: auto;
+   
+    max-width: 500px; /* Maksimalna širina slike */
+    height: auto; /* Automatski održava proporcije */
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease; /* Dodaje animaciju za glatko povećanje */
 }
 
-
-
+.newsletter-image img:hover {
+    transform: scale(1.1); /* Povećava sliku na hover */
+}
 
 
 
