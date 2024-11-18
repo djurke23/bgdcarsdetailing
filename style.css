@@ -29,7 +29,18 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: 0.5s; /* Add smooth transition */
 }
+
+/* Add this new class for scrolled state */
+.header.scrolled {
+    background: #ff6b35;
+    padding: 20px 8%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
 
 .logo {
     font-size: 25px;
@@ -1117,6 +1128,256 @@ h1 {
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
 }
+
+
+
+/* recenzije */ 
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.2) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-out;
+}
+
+.testimonial-track {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial {
+    min-width: 100%;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.3;
+    transition: all 0.5s ease;
+}
+
+.testimonial.active {
+    opacity: 1;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.testimonial-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 4px solid #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+}
+
+.testimonial-img:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 24px;
+    margin: 10px 0;
+    display: flex;
+    gap: 5px;
+}
+
+.star {
+    display: inline-block;
+    animation: sparkle 2s infinite;
+    animation-delay: calc(var(--delay) * 0.2s);
+}
+
+.testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.testimonial-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.testimonial-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.testimonial-name::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: #333;
+    transition: width 0.3s ease;
+}
+
+.testimonial-name:hover::after {
+    width: 100%;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.testimonial-container:hover .nav-button {
+    opacity: 1;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    background: #333;
+    animation: pulse 2s infinite;
+}
+
+.dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dot.active::before {
+    animation: ripple 1.5s infinite;
+}
+
+@keyframes ripple {
+    0% {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+    }
+    100% {
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+    }
+}
+
+
 
 
 

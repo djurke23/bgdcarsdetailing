@@ -285,3 +285,97 @@ const container = document.querySelector('.image-container5');
                 closeModal();
             }
         });
+
+
+
+
+
+
+
+
+
+        // SCROLL NAV BAR 
+
+
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+
+
+
+        // recenzije
+
+
+
+        const track = document.querySelector('.testimonial-track');
+        const slides = document.querySelectorAll('.testimonial');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const dotsContainer = document.querySelector('.dots-container');
+
+        let currentIndex = 0;
+        let interval;
+        const autoScrollDelay = 4000;
+
+        // Kreiranje tačkica za navigaciju
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlideClasses() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            updateDots();
+            updateSlideClasses();
+            resetInterval();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            goToSlide(currentIndex);
+        }
+
+        function resetInterval() {
+            clearInterval(interval);
+            interval = setInterval(nextSlide, autoScrollDelay);
+        }
+
+        // Event listeners
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Inicijalno pokretanje auto-scroll
+        interval = setInterval(nextSlide, autoScrollDelay);
+
+        // Zaustavi auto-scroll kada korisnik pređe mišem preko slidera
+        track.addEventListener('mouseenter', () => clearInterval(interval));
+        track.addEventListener('mouseleave', resetInterval);

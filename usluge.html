@@ -46,16 +46,18 @@
     <!-- naslov -->
     <a href="index.html" class="logo">BGD CARS Detailing</a> 
 
-    <!-- navigacioni bar -->
-    <nav class="navbar">
+
+     <!-- navigacioni bar -->
+     <nav class="navbar">
       <a href="index.html" style="--i:1;" class="active">Početna</a>
-      <a href="#istaknuto" style="--i:2;">Istaknuto</a>
+      <a href="#o-nama" style="--i:2;">O nama</a>
       <a href="usluge.html" style="--i:3;">Usluge</a>
       <a href="cenovnik.html" style="--i:4;">Cenovnik</a>
-      <a href="#o-nama" style="--i:5;">O nama</a>
-      <a href="#kontakt" style="--i:6;">Kontakt</a>  
+      <a href="#galerija" style="--i:5;">Galerija</a>
+      <a href="kontakt.html" style="--i:6;">Kontakt</a>  
     </nav>
 
+    
     <!-- društvene mreže dugmici -->
     <div class="social-media">
       <a href="https://www.youtube.com/@bgdcars" style="--i:1;"><i class='bx bxl-youtube'></i></a>
@@ -95,45 +97,59 @@
 <!-- nase usluge -->
 
 <section class="auto-detailing-services">
-    <div class="services-container">
-        <div class="services-header">
-            <h2 class="services-title">Naše Usluge</h2>
-            <p class="services-subtitle">Pružamo vrhunske usluge detailinga kako bismo vašem vozilu dali sjaj i zaštitu koju zaslužuje.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🚗</div>
-                <h3 class="service-title">Poliranje automobila</h3>
-                <p class="service-description">Profesionalno poliranje koje uklanja ogrebotine i vraća originalni sjaj vašem vozilu.</p>
-                <a href="usluge.html#poliranje" class="service-button">Saznajte više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🧽</div>
-                <h3 class="service-title">Dubinsko pranje</h3>
-                <p class="service-description">Temeljno čišćenje svih površina vašeg vozila uz korišćenje profesionalnih sredstava.</p>
-                <a href="usluge.html#dubinsko" class="service-button">Saznajte više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🛡️</div>
-                <h3 class="service-title">Keramička zaštita</h3>
-                <p class="service-description">Dugotrajna zaštita laka vašeg vozila pomoću najnovije keramičke tehnologije.</p>
-                <a href="usluge.html#keramicka" class="service-button">Saznajte više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">✨</div>
-                <h3 class="service-title">Detaljno spoljašnje pranje</h3>
-                <p class="service-description">Kompletno čišćenje eksterijera vozila sa posebnom pažnjom na svaki detalj.</p>
-                <a href="usluge.html#spoljasnje" class="service-button">Saznajte više</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🚪</div>
-                <h3 class="service-title">Detaljno unutrašnje pranje</h3>
-                <p class="service-description">Potpuno čišćenje enterijera sa dezinfekcijom i osvežavanjem svih površina.</p>
-                <a href="usluge.html#unutrasnje" class="service-button">Saznajte više</a>
-            </div>
-        </div>
-    </div>
+   <div class="services-container">
+       <div class="services-header">
+           <h2 class="services-title">Naše Usluge</h2>
+           <p class="services-subtitle">Pružamo vrhunske usluge detailinga kako bismo vašem vozilu dali sjaj i zaštitu koju zaslužuje.</p>
+       </div>
+       <div class="services-grid">
+           <div class="service-card">
+               <div class="service-icon">🚗</div>
+               <h3 class="service-title">Poliranje automobila</h3>
+               <p class="service-description">Profesionalno poliranje koje uklanja ogrebotine i vraća originalni sjaj vašem vozilu.</p>
+               <button onclick="openModal('poliranje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🧽</div>
+               <h3 class="service-title">Dubinsko pranje</h3>
+               <p class="service-description">Temeljno čišćenje svih površina vašeg vozila uz korišćenje profesionalnih sredstava.</p>
+               <button onclick="openModal('dubinsko')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🛡️</div>
+               <h3 class="service-title">Keramička zaštita</h3>
+               <p class="service-description">Dugotrajna zaštita laka vašeg vozila pomoću najnovije keramičke tehnologije.</p>
+               <button onclick="openModal('keramicka')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">✨</div>
+               <h3 class="service-title">Detaljno spoljašnje pranje</h3>
+               <p class="service-description">Kompletno čišćenje eksterijera vozila sa posebnom pažnjom na svaki detalj.</p>
+               <button onclick="openModal('spoljasnje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">🚪</div>
+               <h3 class="service-title">Detaljno unutrašnje pranje</h3>
+               <p class="service-description">Potpuno čišćenje enterijera sa dezinfekcijom i osvežavanjem svih površina.</p>
+               <button onclick="openModal('unutrasnje')" class="service-button">Saznajte više</button>
+           </div>
+           <div class="service-card">
+               <div class="service-icon">💡</div>
+               <h3 class="service-title">Polimerizacija farova</h3>
+               <p class="service-description">Profesionalna restauracija i zaštita farova sa dugotrajnom keramičkom zaštitom u trajanju od 12 meseci.</p>
+               <button onclick="openModal('farovi')" class="service-button">Saznajte više</button>
+           </div>
+       </div>
+   </div>
 </section>
+
+<!-- Modal -->
+<div id="serviceModal" class="modal">
+   <div class="modal-content">
+       <span class="close-button" onclick="closeModal()">&times;</span>
+       <div id="modalContent" class="service-list"></div>
+   </div>
+</div>
 
 
 
