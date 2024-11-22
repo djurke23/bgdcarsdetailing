@@ -3,236 +3,274 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}
 
 body {
-    background: #eaeaea;
+  background: #eaeaea;
+  overflow-x: hidden;
+}
+
+.main-container {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 30px 8%;
-    background: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    transition: 0.5s; /* Add smooth transition */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 8%;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  transition: 0.5s;
 }
 
-/* Add this new class for scrolled state */
 .header.scrolled {
-    background: #ff6b35;
-    padding: 20px 8%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: #ff6b35;
+  padding: 20px 8%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 .logo {
-    font-size: 25px;
-    color: #222;
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
-    /* Dodajte hover efekat */
-    transition: color 0.3s ease; /* Dodajemo tranziciju za glatki prelaz boje */
+  font-size: 25px;
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  transition: color 0.3s ease;
 }
 
-/* Dodajte hover efekat */
 .logo:hover {
-    color: #ff4800; /* Boja koju želite kada je naslov na hoveru */
+  color: #ff4800;
 }
 
-
-
-
-
-/* nav bar */
-
-.navbar a { 
-    display: inline-block;
-    font-size: 18px;
-    color: #222;
-    text-decoration: none;
-    font-weight: 500; 
-    margin: 0 20px;
-    transition: 0.3s;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-    animation-delay: calc(.2s * var*(--i));
-    }
+.navbar a {
+  display: inline-block;
+  font-size: 18px;
+  color: #222;
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 20px;
+  transition: 0.3s;
+  opacity: 0;
+  animation: slideTop 1s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
 
 .navbar a:hover,
 .navbar a.active {
-    color: #ff4800;
+  color: #ff4800;
 }
 
 .social-media {
-    display: flex;
-    justify-content: space-between;
-    width: 150px;
-    height: 40px;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  height: 40px;
 }
-    
-    .social-media a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px; 
-    background: transparent;
-    border: 2px solid transparent; 
-    text-decoration: none; 
-    transform: rotate(45deg);
-    transition: .5s;
-    animation: slideSci .5s ease forwards;
-    animation-delay: calc(.2s * var*(--i));
-    }
+
+.social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transform: rotate(45deg);
+  transition: 0.5s;
+  animation: slideSci 0.5s ease forwards;
+  animation-delay: calc(0.2s * var(--i));
+}
 
 .social-media a:hover {
-    border-color: #eaeaea;   
+  border-color: #eaeaea;
 }
 
 .social-media a i {
-    font-size: 24px;
-    color: #000000;
-    transform: rotate(-45deg);
+  font-size: 24px;
+  color: #000000;
+  transform: rotate(-45deg);
 }
 
-
-
-
-
-
-
-
-
-
-
-.home{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 8% 0;
-    overflow: hidden;
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 8% 0;
+  overflow: hidden;
 }
 
-.home-content{
-    max-width: 630px;
+.home-content {
+  max-width: 630px;
 }
 
-.home-content h1{
-    font-size: 50px;
-    line-height: 1.2;
-    opacity: 0;
-        animation: slideBottom 1s ease forwards;
-        animation-delay: 1s;
+.home-content h1 {
+  font-size: 50px;
+  line-height: 1.2;
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 1s;
 }
 
 .home-content h3 {
-    font-size: 40px;
-    color: #ff4800;
-    opacity: 0;
-       animation: slideRight 1s ease forwards;
-       animation-delay: 1.3s;
+  font-size: 40px;
+  color: #ff4800;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1.3s;
 }
 
 .home-content p {
-    font-size: 16px;
-    margin: 15px 0 30px;
-    opacity: 0;
-       animation: slideLeft 1s ease forwards;
-       animation-delay: 1.6s;
+  font-size: 16px;
+  margin: 15px 0 30px;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: 1.6s;
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 28px;
-    background: #ff4800;
-    border: 2px solid #ff4800;
-    border-radius: 6px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-    font-size: 16px;
-    color: #eaeaea;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: 2s;
-}
-
-.btn:hover{
-   background: transparent ;
-   color: #ff4800;
-}
-
-.home-img {
-    position: relative;
-    right: -7%;
-    width: 450px;
-    height: 450px;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease; /* Dodali smo tranziciju za glatki hover efekat */
-  }
-  
-  /* Dodajemo efekat samo kada korisnik pređe mišem preko slike */
-  .home-img:hover {
-    transform: rotate(45deg) scale(1.1); /* Povećava sliku prilikom hover-a */
-  }
-  
-.home-img .rhombus {
-   position: absolute;
-   width: 100%;
-   height: 100%;
-   background: #eaeaea;
-   border: 25px solid #ff4800;
-   box-shadow: -15px 15px 15px rgb(0, 0, 0, .2);
-   opacity: 0;
-    animation: zoomOut 1s ease forwards;
-    animation-delay: 1.6s;
-}
-
-.home-img .rhombus img{
-  position: absolute;
-  top: 110px;
-  left: -250px;
-  max-width: 750px;
-  transform: rotate(-45deg);
+  display: inline-block;
+  padding: 10px 28px;
+  background: #ff4800;
+  border: 2px solid #ff4800;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #eaeaea;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-weight: 600;
   opacity: 0;
-  animation: car 1s ease forwards;
+  animation: slideLeft 1s ease forwards;
   animation-delay: 2s;
 }
 
+.btn:hover {
+  background: transparent;
+  color: #ff4800;
+}
+
 .home .rhombus2 {
+  position: absolute;
+  top: -25%;
+  right: -25%;
+  width: 700px;
+  height: 700px;
+  background: #ff4800;
+  transform: rotate(45deg);
+  z-index: -1;
+  opacity: 0;
+  animation: rhombus2 1s ease forwards;
+}
+
+.home .rhombus3 {
     position: absolute;
-    top: -25%;
-    right: -25%;
+    top: 50%;
+    left: -25%;
     width: 700px;
     height: 700px;
     background: #ff4800;
     transform: rotate(45deg);
     z-index: -1;
     opacity: 0;
-    animation: rhombus2 1s ease forwards;
+    animation: rhombus3 1s ease forwards;
+    }
+    @keyframes rhombus3 {
+    0% {
+    left: -40%;
+    opacity: 0;
+    }
+    100% {
+    left: -25%;
+    opacity: 1;
+    }
+    }
+
+
+
+/* Keyframe animations */
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideSci {
+  0% {
+    transform: translateX(-100px) rotate(45deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(45deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rhombus2 {
+  0% {
+    right: -40%;
+    opacity: 0;
+  }
+  100% {
+    right: -25%;
+    opacity: 1;
+  }
 }
 
 
@@ -532,7 +570,6 @@ body {
     transform: translateX(-50%);
     width: 100px;
     height: 3px;
-    background: linear-gradient(90deg, #ff6b6b, #ffd93d);
 }
 
 .content-wrapper {
@@ -637,27 +674,26 @@ body {
     background-color:  #ff6b35; 
     flex-direction: column;
     align-items: center;
-    
     padding: 4rem 2rem;
     margin: 0 auto;
 }
 
-.services-header {
+.services-header00 {
     text-align: center;
     margin-bottom: 3rem;
     max-width: 800px;
     width: 100%;
 }
 
-.services-title {
+.services-title00 {
     font-size: 2.5rem;
-    color: #333;
+    color: #ffffff;
     margin-bottom: 1rem;
 }
 
-.services-subtitle {
+.services-subtitle2 {
     font-size: 1.1rem;
-    color: #666;
+    color: #ffffff;
     line-height: 1.6;
 }
 
@@ -823,6 +859,16 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 /* nase usluge */
 
 .auto-detailing-services {
@@ -842,9 +888,12 @@ body {
 }
 .services-title {
     font-size: 2.5em;
+    text-align: center;
     margin-bottom: 10px;
     color: #ffffff;
 }
+
+
 .services-subtitle {
     font-size: 1em;
     color: #a0a0a0;
@@ -1862,37 +1911,117 @@ h1 {
 
 /* BACK TO TOPP */
 
- .back-to-top{
+.scroll-to-top {
+    display: none;
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e44100;
-    border-radius: 0.5rem;
-    text-decoration: none;
-    transition: 0.2s ease-out; 
- }
-
- .back-to-top span{
-    color: rgb(255, 255, 255);
-    font-size: 3rem;
-    transition: 0.2s ease-out;
- }
-
- .back-to-top:hover{
-    background-color: #a73b14; 
- }
-
- .back-to-top:hover span{
-    transform: translateY(-4px);
- }
-
-
-.container1{
-    padding: 2rem;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(145deg, #ff8833, #ff6b0f);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 107, 15, 0.4);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    overflow: hidden;
 }
+
+.scroll-to-top i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 107, 15, 0.6);
+}
+
+.scroll-to-top:hover i {
+    animation: moveArrow 1.2s ease infinite;
+}
+
+.scroll-to-top.visible {
+    display: block;
+    animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px) scale(0.5);
+    }
+    70% {
+        transform: translateY(-10px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes moveArrow {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+    }
+    50% {
+        transform: translate(-50%, -80%);
+    }
+    75% {
+        transform: translate(-50%, -40%);
+    }
+}
+
+/* Pulse effect */
+.scroll-to-top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: rgba(255, 107, 15, 0.4);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+
+/* Dodatni stilovi za različite varijante strelica */
+.arrow-variant-1 i {
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.arrow-variant-2 i {
+    transform: translate(-50%, -50%);
+    font-size: 26px;
+}
+
+.arrow-variant-3 {
+    background: linear-gradient(145deg, #ff9944, #ff7722);
+}
+
 
 
 
@@ -1900,81 +2029,72 @@ h1 {
 
 /* inf slider */
 
-.slider2 {
+:root {
+    --num-slides: 39;
+    }
+    .slider2 {
     height: 250px;
-    margin:auto;
+    margin: auto;
     position: relative;
     width: 90%;
     display: grid;
     place-items: center;
     overflow: hidden;
-}
-
-.slide-track {
+    }
+    .slide-track {
     display: flex;
-    width: calc(250px * 78); /* 21 je broj slajdova x 2 (21x2) */
+    width: calc(250px * (var(--num-slides) * 2));
     animation: scroll 70s linear infinite;
-    animation-iteration-count: infinite; 
-}
-
-
-.slide.track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes scroll {
+    animation-iteration-count: infinite;
+    }
+    .slide-track:hover {
+    animation-play-state: running;
+    }
+    @keyframes scroll {
     0% {
-        transform: translateX(0);
+    transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-250px *78));
+    transform: translateX(calc(-250px * (var(--num-slides) * 2)));
     }
-}
-
-.slide2 {
+    }
+    .slide2 {
     height: 200px;
     width: 250px;
     display: flex;
     align-items: center;
     padding: 15px;
     perspective: 100%;
-}
-
-.slide2 img {
+    }
+    .slide2 img {
     width: 100%;
     transition: transform 1s;
-}
-
-.slide2 img:hover {
-    transform: scale(1.1); 
-}
-
-img:hover{
+    }
+    .slide2 img:hover {
+    transform: scale(1.1);
+    }
+    img:hover{
     transform: translateZ(20px);
-}
-
-.slider2::before,
-.slider2::after{
+    }
+    .slider2::before,
+    .slider2::after {
     background: linear-gradient(to right, rgba(255, 255,255,1) 0%,
     rgba(255, 255, 255, 0) 100%);
     content: '';
     height: 100%;
     position: absolute;
     width:15%;
-    z-index: 2; 
-}
-
-.slider2::before {
+    z-index: 2;
+    }
+    .slider2::before {
     left:0;
     top: 0;
-}
-
-.slider2::after{
+    }
+    .slider2::after{
     right:0;
     top:0;
-    transform: rotateZ(100deg);
-}
-
+    transform: rotateZ(180deg);
+    }
 
 
 

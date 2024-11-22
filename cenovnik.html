@@ -82,144 +82,158 @@
 
 
         :root {
-            --primary-color: #ff6b35;
-            --secondary-color: #f7c59f;
-            --accent-color: #2b2d42;
-            --text-color: #2b2d42;
-            --light-orange: #ffe0d1;
-        }
+    --primary-color: #ff6b35;
+    --secondary-color: #f7c59f;
+    --accent-color: #2b2d42;
+    --text-color: #2b2d42;
+    --light-orange: #ffe0d1;
+}
+
+.logo i {
+    font-size: 4rem;
+    color: var(--primary-color);
+}
+
+.container_cenovnik {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.services-grid-cenovnik {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolone sa jednakom širinom */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-card-cenovnik {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card-cenovnik.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card-cenovnik:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.service-card-cenovnik h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-card-cenovnik h3 i {
+    color: var(--primary-color);
+}
+
+.car-icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.car-icon {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.car-icon i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.car-icon span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.price-table th, .price-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--light-orange);
+}
+
+.price-table th {
+    background: var(--primary-color);
+    color: white;
+}
+
+.price-table tr:hover {
+    background: var(--light-orange);
+}
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.service-icon-cenovnik {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .services-grid-cenovnik {
+        grid-template-columns: 1fr; /* Samo 1 kolona na manjim ekranima */
+    }
+
+    .container-cenovnik {
+        padding: 1rem;
+    }
+}
 
 
-    
-
-        .logo i {
-            font-size: 4rem;
-            color: var(--primary-color);
-        }
-
-        .container_cenovnik {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .services-grid-cenovnik {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card-cenovnik {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            border: 2px solid transparent;
-        }
-
-        .service-card-cenovnik.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card-cenovnik:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-
-        .service-card-cenovnik h3 {
-            color: var(--text-color);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-card-cenovnik h3 i {
-            color: var(--primary-color);
-        }
-
-        .car-icons {
-            display: flex;
-            justify-content: space-around;
-            margin: 1rem 0;
-        }
-
-        .car-icon {
-            text-align: center;
-            padding: 0.5rem;
-        }
-
-        .car-icon i {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .car-icon span {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--text-color);
-        }
-
-        .price-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .price-table th, .price-table td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid var(--light-orange);
-        }
-
-        .price-table th {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .price-table tr:hover {
-            background: var(--light-orange);
-        }
-
-        .highlight {
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .service-icon-cenovnik {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .services-grid-cenovnik {
-                grid-template-columns: 1fr;
-            }
-            
-            .container-cenovnik {
-                padding: 1rem;
-            }
-        }
     </style>
 </head>
 <body>
     
 
 <br><br><br><br><br><br><br><br><br>
+    
+<div class="services-container">
+    <div class="services-header">
+        <h2 class="services-title"> Cenovnik</h2>
+        <p class="services-subtitle">Dobrodošli u naš cenovnik usluga! 
+            Pružamo visokokvalitetne usluge auto detaljinga koje uključuju poliranje, 
+            keramičku zaštitu, čišćenje enterijera i eksterijera, dubinsko čišćenje, kao i polimerizaciju farova. 
+            Naš cilj je da vaš automobil izgleda kao nov, 
+            bilo da se radi o osnovnoj nezi ili vrhunskim tretmanima zaštite.</p>
+    </div>
+
+</div>
 
     <div class="container-cenovnik">
         <div class="services-grid-cenovnik">
@@ -400,7 +414,39 @@
                     </tr>
                 </table>
             </div>
+            
+            <div class="service-card-cenovnik">
+                <div class="service-icon-cenovnik">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Polimerizacija farova</h3>
+                <div class="car-icons">
+                    <div class="car-icon">
+                        <i class="fas fa-car"></i>
+                        <span>Mali auto</span>
+                    </div>
+                    <div class="car-icon">
+                        <i class="fas fa-car-side"></i>
+                        <span>Srednji auto</span>
+                    </div>
+                    <div class="car-icon">
+                        <i class="fas fa-truck-pickup"></i>
+                        <span>Veliki auto</span>
+                    </div>
+                </div>
+                <table class="price-table">
+                    <tr>
+                        <th>Tip vozila</th>
+                        <th>Cena</th>
+                    </tr>
+                    <tr>
+                        <td>Bilo koji tip</td>
+                        <td>50€</td>
+                    </tr>
+                </table>
+            </div>
 
+            
             <div class="service-card-cenovnik">
                 <div class="service-icon-cenovnik">
                     <i class="fas fa-broom"></i>
@@ -442,6 +488,10 @@
         </div>
     </div>
 
+    <p class="services-subtitle">
+        Svaka usluga prilagođena je veličini vašeg vozila, a cene su jasno definisane kako biste unapred znali šta možete da očekujete. 
+        Pogledajte našu ponudu i odaberite tretman koji najbolje odgovara vašim potrebama!
+    </p>
 
     <br><br><br><br><br>
 
@@ -496,7 +546,7 @@
            </form>
        </div>
        <div class="newsletter-image">
-           <img src="postar.webp" alt="Auto detailing ilustracija">
+           <img src="slike/news.png" alt="Auto detailing ilustracija">
        </div>
     </div>
     </section>
@@ -508,12 +558,13 @@
 
 
 
+  <!-- BACK TO TOP --> 
 
- <!-- BACK TO TOP --> 
+    <!-- Glavno dugme -->
+    <button class="scroll-to-top" id="scrollBtn">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
- <a href="#" class="back-to-top">
-    <span class="material-icons">arrow_upward</span>
-  </a>
 
 
 
@@ -567,7 +618,7 @@
    </div>
    
    <div class="footer-bottom">
-       <p>&copy; Copyright 2024 BGD CARS DETAILING Sva prava zadržana | Made by <a href="https://djurke23.github.io/portfolio/">Djurke23.</a></p>
+       <p>&copy; Copyright 2024 BGDCARS DETAILING Sva prava zadržana | Made by <a href="https://djurke23.github.io/portfolio/">Djurke23.</a></p>
    </div>
 </footer>
 

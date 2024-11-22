@@ -424,3 +424,31 @@ const container = document.querySelector('.image-container5');
         // Zaustavi auto-scroll kada korisnik pređe mišem preko slidera
         track.addEventListener('mouseenter', () => clearInterval(interval));
         track.addEventListener('mouseleave', resetInterval);
+
+
+
+
+
+
+
+
+
+//dugme scroll to top
+
+
+        const scrollBtn = document.getElementById('scrollBtn');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        scrollBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
