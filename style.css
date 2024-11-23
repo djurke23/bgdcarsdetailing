@@ -107,21 +107,39 @@ body {
   transform: rotate(-45deg);
 }
 
+/* Adjust home section to accommodate the floating car */
 .home {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px 8% 0;
-  overflow: hidden;
-}
-
-.home-content {
-  max-width: 630px;
-}
-
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 8% 0;
+    overflow: hidden;
+  }
+  
+  .home-content {
+    max-width: 50%; /* Adjust to make room for the car */
+    z-index: 2; /* Ensure content stays above rhombus shapes */
+  }
+  
+  /* Media query for responsive design */
+  @media screen and (max-width: 1024px) {
+    .floating-car {
+      width: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .floating-car {
+      display: none; /* Hide on mobile devices */
+    }
+    
+    .home-content {
+      max-width: 100%;
+    }
+  }
 .home-content h1 {
   font-size: 50px;
   line-height: 1.2;
@@ -131,11 +149,20 @@ body {
 }
 
 .home-content h3 {
-  font-size: 40px;
-  color: #ff4800;
-  opacity: 0;
-  animation: slideRight 1s ease forwards;
-  animation-delay: 1.3s;
+    font-size: 40px;
+    color: #ff4800;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1.3s;
+    text-shadow: 
+        -2px -2px 0 #000,
+         2px -2px 0 #000,
+        -2px  2px 0 #000,
+         2px  2px 0 #000,
+        -1px -1px 0 #000,
+         1px -1px 0 #000,
+        -1px  1px 0 #000,
+         1px  1px 0 #000;
 }
 
 .home-content p {
@@ -174,7 +201,7 @@ body {
   right: -25%;
   width: 700px;
   height: 700px;
-  background: #ff4800;
+  background: #ff6b35;
   transform: rotate(45deg);
   z-index: -1;
   opacity: 0;
@@ -187,7 +214,7 @@ body {
     left: -25%;
     width: 700px;
     height: 700px;
-    background: #ff4800;
+    background: #ff6b35;
     transform: rotate(45deg);
     z-index: -1;
     opacity: 0;
@@ -375,6 +402,218 @@ body {
         opacity: 1;
     }
 }
+
+
+
+
+
+
+
+/* Hamburger meni stilizacija */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    transition: 0.5s ease-in-out;
+}
+
+.menu-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #222;
+    border-radius: 3px;
+    transform-origin: left center;
+    transition: 0.25s ease-in-out;
+}
+
+.menu-icon span:nth-child(1) {
+    top: 0px;
+}
+
+.menu-icon span:nth-child(2) {
+    top: 8px;
+}
+
+.menu-icon span:nth-child(3) {
+    top: 16px;
+}
+
+/* Animacija za X */
+.menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: -1px;
+    left: 4px;
+}
+
+.menu-icon.active span:nth-child(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 17px;
+    left: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        z-index: 101;
+    }
+    
+    /* Ostali media query stilovi ostaju isti... */
+}
+
+
+
+
+/* Modifikacija navigacije za mobilni prikaz */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 250px;
+        height: 100vh;
+        background: #fff;
+        padding: 80px 20px 0;
+        transition: 0.5s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .navbar.active {
+        right: 0;
+    }
+    
+    .navbar a {
+        display: block;
+        font-size: 18px;
+        margin: 15px 0;
+        transform: translateX(100px);
+        transition: 0.5s ease;
+        opacity: 0;
+    }
+    
+    .navbar.active a {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    /* Prilagođavanje headera */
+    .header {
+        padding: 20px 5%;
+    }
+    
+    .header.scrolled {
+        padding: 15px 5%;
+    }
+    
+    /* Prilagođavanje social media ikonica */
+    .social-media {
+        width: 120px;
+    }
+    
+    .social-media a {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .social-media a i {
+        font-size: 20px;
+    }
+}
+
+/* Dodatna prilagođavanja za manje ekrane */
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 22px;
+    }
+    
+    .navbar {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.97);
+    }
+    
+    .social-media {
+        display: none; /* ili možete ih premestiti u navbar ako želite */
+    }
+}
+
+
+.floating-car {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Početno sakrivena */
+    animation: showCar 1s ease forwards, floatUpDown 4s ease-in-out infinite;
+    animation-delay: 2.3s, 2.3s; /* Kasni nakon ostalih animacija */
+  }
+  
+  .floating-car img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+  
+  /* Nova animacija za pojavljivanje slike */
+  @keyframes showCar {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+  
+  @keyframes floatUpDown {
+    0%, 100% {
+      transform: translateY(-50%) translateY(-20px);
+    }
+    50% {
+      transform: translateY(-50%) translateY(20px);
+    }
+  }
+  
+  /* Responsive design */
+  @media screen and (max-width: 1200px) {
+    .floating-car {
+      width: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .floating-car {
+      display: none;
+    }
+    
+    .home-content {
+      max-width: 100%;
+      text-align: center;
+    }
+  }
+
+
+
+
+
 
 
 
@@ -1698,7 +1937,7 @@ h1 {
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    animation: pulse 2s infinite;
+    
 }
 .newsletter-button:hover {
     background-color: #ff8c5a;
@@ -1720,6 +1959,263 @@ h1 {
 .newsletter-image img:hover {
     transform: scale(1.1); /* Povećava sliku na hover */
 }
+
+
+
+/* newsletter */
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.newsletter-section {
+    background: linear-gradient(120deg, #df6021 0%, #1a1a1a 100%);
+    color: #ffffff;
+    padding: 80px 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+.newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.newsletter-content {
+    flex: 1;
+    max-width: 600px;
+}
+.newsletter-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+.newsletter-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+}
+.newsletter-input {
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+}
+.newsletter-button {
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+}
+.newsletter-button:hover {
+    background-color: #ff8c5a;
+}
+.newsletter-image {
+    animation: float 5s ease-in-out infinite;
+
+}
+
+.newsletter-image img {
+
+    max-width: 500px; /* Maksimalna širina slike /
+    height: auto; / Automatski održava proporcije /
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease; / Dodaje animaciju za glatko povećanje */
+}
+
+.newsletter-image img:hover {
+    transform: scale(1.1); /* Povećava sliku na hover */
+}
+
+/* newsletter */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.newsletter-section {
+    background: linear-gradient(120deg, #df6021 0%, #1a1a1a 100%);
+    color: #ffffff;
+    padding: 60px 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.newsletter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.newsletter-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.newsletter-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.newsletter-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 15px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 1em;
+}
+
+.newsletter-button {
+    background-color: #ff6b35;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-button:hover {
+    background-color: #ff8c5a;
+}
+
+.newsletter-image {
+    animation: float 5s ease-in-out infinite;
+}
+
+.newsletter-image img {
+    max-width: 500px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.newsletter-image img:hover {
+    transform: scale(1.1);
+}
+
+/* Responzivnost */
+@media screen and (max-width: 1024px) {
+    .newsletter-container {
+        padding: 0 40px;
+    }
+    
+    .newsletter-image img {
+        max-width: 400px;
+    }
+    
+    .newsletter-title {
+        font-size: 2.2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .newsletter-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .newsletter-content {
+        max-width: 100%;
+    }
+    
+    .newsletter-form {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    .newsletter-image img {
+        max-width: 300px;
+    }
+    
+    .newsletter-title {
+        font-size: 2em;
+    }
+    
+    .newsletter-description {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .newsletter-section {
+        padding: 40px 0;
+    }
+    
+    .newsletter-container {
+        padding: 0 20px;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .newsletter-input {
+        border-radius: 5px;
+        width: 100%;
+    }
+    
+    .newsletter-button {
+        width: 100%;
+        border-radius: 5px;
+    }
+    
+    .newsletter-image img {
+        max-width: 250px;
+    }
+    
+    .newsletter-title {
+        font-size: 1.8em;
+    }
+}
+
 
 
 

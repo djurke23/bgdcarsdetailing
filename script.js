@@ -1,4 +1,32 @@
 
+// HAMBURGER
+
+const menuIcon = document.querySelector('.menu-icon');
+const navbar = document.querySelector('.navbar');
+
+menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('active');
+    navbar.classList.toggle('active');
+});
+
+// Zatvaranje menija kada se klikne na link
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('active');
+    });
+});
+
+// Zatvaranje menija kada se klikne van njega
+document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !menuIcon.contains(e.target)) {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('active');
+    }
+});
+
+
+
 
 // o nama v2
 
